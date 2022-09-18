@@ -11,10 +11,4 @@
     <PackageReference Include="Microsoft.ML" Version="1.7.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="TrainingData\bond-prices.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
