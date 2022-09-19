@@ -21,7 +21,7 @@
                     Console.WriteLine($"iteration {i} - fxn: {fxn} - xn: {xn}");
                     return xn;
                 }
-                //an approximation of the derivative of f(xn) using centered 5-point method
+                //a numeric differentiation for f(x)
                 //[f(x-2h) - 8f(x-h) + 8f(x+h) - f(x+2h)] / 12h
                 var f1 = f(xn - h2);
                 var f2 = 8 * f(xn - h);
