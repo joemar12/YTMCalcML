@@ -4,20 +4,23 @@ namespace YTMCalcML.Core.Utils
 {
     public class DataHelper
     {
+        private static Random _rng = new Random();
+
         public IEnumerable<Bond> GenerateBonds(int length)
         {
-            var rng = new Random();
             for (int i = 1; i <= length; i++)
             {
                 var bond = new Bond()
                 {
-                    CouponRate = rng.Next(3, 7) + rng.NextSingle(),
-                    Redemption = rng.Next(1, 50) * 100f,
-                    Term = rng.Next(5, 30),
+                    FaceValue = _rng.Next(1, 50) * 100f,
+                    CouponRate = (float)Math.Round(((_rng.NextDouble() * 7) + 3), 4), //random value between 3 and 10
+                    Term = _rng.Next(5, 30),
                     Frequency = 2,
-                    YTM = rng.Next(2, 10) + rng.NextSingle()
                 };
-                bond.Price = BondCalc.ComputePrice(bond);
+                //limit the difference of face value and current price to 20%
+                var priceVariance = bond.FaceValue * (_rng.Next(-20, 20) / 100f);
+                bond.Price = bond.FaceValue + priceVariance;
+                bond.YieldToMaturity = BondCalc.ComputeYtm(bond);
                 yield return bond;
             }
         }

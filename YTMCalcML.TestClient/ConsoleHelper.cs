@@ -1,33 +1,15 @@
-﻿using Microsoft.ML;
-using Microsoft.ML.Data;
-using System.Diagnostics;
-using static Microsoft.ML.TrainCatalogBase;
+﻿using Microsoft.ML.Data;
 
 namespace YTMCalcML.TestClient
 {
     public static class ConsoleHelper
     {
-        public static void PrintPrediction(string prediction)
-        {
-            Console.WriteLine($"*************************************************");
-            Console.WriteLine($"Predicted : {prediction}");
-            Console.WriteLine($"*************************************************");
-        }
-
-        public static void PrintPredictionVsActual(string predictedValueLabel, string prediction, string actual)
+        public static void PrintPredictionVsActual(string prediction, string actual, string predictedValueLabel = "", string actualValueLabel = "")
         {
             Console.WriteLine($"*************************************************");
             Console.WriteLine($"Predicted {predictedValueLabel}: {prediction}");
-            Console.WriteLine($"Actual {predictedValueLabel}: {actual}");
+            Console.WriteLine($"Actual {actualValueLabel}: {actual}");
             Console.WriteLine($"*************************************************");
-        }
-
-        public static void PrintRegressionPredictionVersusObserved(string predictionCount, string observedCount)
-        {
-            Console.WriteLine($"-------------------------------------------------");
-            Console.WriteLine($"Predicted : {predictionCount}");
-            Console.WriteLine($"Actual:     {observedCount}");
-            Console.WriteLine($"-------------------------------------------------");
         }
 
         public static void PrintRegressionMetrics(string name, RegressionMetrics metrics)

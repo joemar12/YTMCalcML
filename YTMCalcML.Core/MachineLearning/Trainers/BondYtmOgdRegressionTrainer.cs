@@ -7,12 +7,11 @@ using YTMCalcML.Core.MachineLearning.DataStructures;
 
 namespace YTMCalcML.Core.MachineLearning.Trainers
 {
-    public class BondYtmSdcaRegressionTrainer : TrainerBase<Bond>
+    public class BondYtmOgdRegressionTrainer : TrainerBase<Bond>
     {
-        public BondYtmSdcaRegressionTrainer() : base("Bond YTM SDCA Regression Trainer")
+        public BondYtmOgdRegressionTrainer() : base("Bond YTM OGD Regression Trainer")
         {
         }
-
         protected override EstimatorChain<NormalizingTransformer> BuildDataProcessingPipeline()
         {
             var dataProcessPipeline = MlContext.Transforms
@@ -31,7 +30,7 @@ namespace YTMCalcML.Core.MachineLearning.Trainers
 
         protected override ITrainerEstimator<RegressionPredictionTransformer<LinearRegressionModelParameters>, LinearRegressionModelParameters> GetTrainer()
         {
-            return MlContext.Regression.Trainers.Sdca(labelColumnName: "Label", featureColumnName: "Features");
+            return MlContext.Regression.Trainers.OnlineGradientDescent(labelColumnName: "Label", featureColumnName: "Features");
         }
     }
 }

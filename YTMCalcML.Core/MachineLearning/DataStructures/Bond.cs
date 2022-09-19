@@ -11,7 +11,7 @@ namespace YTMCalcML.Core.MachineLearning.DataStructures
         public float CouponRate { get; set; }
 
         [LoadColumn(2)]
-        public float Redemption { get; set; }
+        public float FaceValue { get; set; }
 
         [LoadColumn(3)]
         public float Term { get; set; }
@@ -20,6 +20,6 @@ namespace YTMCalcML.Core.MachineLearning.DataStructures
         public float Frequency { get; set; }
 
         [LoadColumn(5)]
-        public float YTM { get; set; }
+        public float YieldToMaturity { get; set; }
     }
 }
