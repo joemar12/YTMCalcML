@@ -1,6 +1,6 @@
 # YTMCalcML
 
-An attempt to use Machine Learning to predict Bond Yield to Maturity (YTM) instead of the trial and error method. Currently the model still needs tweaking to achieve higher accuracy, though.
+An attempt to use Machine Learning to predict Bond Yield to Maturity (YTM) instead of the approximation method. Currently the model still needs tweaking to achieve higher accuracy, though.
 
 ### Training data
 
