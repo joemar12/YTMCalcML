@@ -3,7 +3,7 @@
     public static class OptimizationHelper
     {
         /// <summary>
-        /// Find the minima of the function using Newton's optimization method
+        /// Find the root of the function using Newton's method
         /// </summary>
         public static float NewtonMethod(Func<float, float> f, float initVal, float epsilon = 1e-10f, int maxIteration = 100)
         {
