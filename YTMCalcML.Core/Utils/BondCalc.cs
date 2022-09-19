@@ -21,8 +21,6 @@ namespace YTMCalcML.Core.Utils
         }
         public static float ComputeYtm(Bond bond, float inputInitYtm = 3f)
         {
-            //using Newton's Method of Optimization to find the YTM value
-            //that will yield the least difference of price within a certain number of iterations
             float epsilon = 0.0001f;
             var maxIterations = 100;
             float initYtm = inputInitYtm; //starts at 3% when no value is specified
@@ -42,6 +40,9 @@ namespace YTMCalcML.Core.Utils
                 var diff = computedPrice - bond.Price;
                 return diff;
             }
+            //using Newton's Method to find the YTM value that will yield the least difference
+            //between computed price and actual price (the root of calcPriceDiff()) 
+            //within a certain number of iterations
             //we're optimizing the price diff here until it reaches a value less than the set threshold, the epsilon.
             return OptimizationHelper.NewtonMethod(calcPriceDiff, initYtm, epsilon, maxIterations);
         }
