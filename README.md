@@ -4,7 +4,7 @@ An attempt to use Machine Learning to predict Bond Yield to Maturity (YTM) inste
 
 ### Training data
 
-To generate training data, a set of random parameters (par value, annual coupon rate, term in years, coupon payment frequency, and YTM) are fed to a price calculator function and the resulting price is set to the same input model. A list of such objects is then be dumped into a csv file for training. During training, the YTM will be the `Label` and the other properties of the Bond object will be the `Features`.
+To generate training data, a set of random parameters (par value, annual coupon rate, term in years, coupon payment frequency, and current price) are fed to a normal ytm calculator function and the resulting yield to maturity is set to the same input model. A list of such objects is then dumped into a csv file for training. During training, the YTM will be the `Label` and the other properties of the Bond object will be the `Features`.
 
 ### Utilities
 
