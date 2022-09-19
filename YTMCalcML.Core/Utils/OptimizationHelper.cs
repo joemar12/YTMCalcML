@@ -13,11 +13,12 @@
             var xn = initVal;
             float dFxn;
             float fxn;
-            for (int i = 0; i < maxIteration; i++)
+            for (int i = 1; i <= maxIteration; i++)
             {
                 fxn = f(xn);
                 if (Math.Abs(fxn) < epsilon)
                 {
+                    Console.WriteLine($"iteration {i} - fxn: {fxn} - xn: {xn}");
                     return xn;
                 }
                 //an approximation of the derivative of f(xn) using centered 5-point method
@@ -32,6 +33,7 @@
                     //no solution found.
                     break;
                 }
+                Console.WriteLine($"iteration {i} - fxn: {fxn} - dfxn: {dFxn} - xn: {xn}");
                 //newton's method formula
                 xn -= (fxn / dFxn);
             }

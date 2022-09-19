@@ -19,14 +19,13 @@ namespace YTMCalcML.Core.Utils
 
             return (float)price;
         }
-
-        public static float ComputeYtm(Bond bond)
+        public static float ComputeYtm(Bond bond, float inputInitYtm = 3f)
         {
             //using Newton's Method of Optimization to find the YTM value
             //that will yield the least difference of price within a certain number of iterations
             float epsilon = 0.0001f;
             var maxIterations = 100;
-            float initYtm = 3f; //start estimate at 3%
+            float initYtm = inputInitYtm; //starts at 3% when no value is specified
 
             var c = bond.CouponRate / 100;
             var par = bond.FaceValue;
